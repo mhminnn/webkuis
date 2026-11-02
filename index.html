@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Interaktif Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-decorations">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+
+  <main class="quiz-app-container">
+    <section id="start-screen" class="card active">
+      <div class="card-header-icon">
+        <span class="icon">✨</span>
+      </div>
+      <h1 class="main-title">Kuis Pengetahuan Umum</h1>
+      <p class="subtitle">Uji wawasanmu dengan 10 pertanyaan pilihan ganda pilihan. Setiap pertanyaan memiliki batas waktu!</p>
+      
+      <div class="secret-banner">
+        <span>🎁 DAPATKAN NILAI 100 UNTUK MENDAPATKAN SECRET</span>
+      </div>
+      
+      <div class="quiz-info-grid">
+        <div class="info-card">
+          <span class="info-icon">❓</span>
+          <div>
+            <strong>10 Soal</strong>
+            <small>Pilihan Ganda</small>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">⏱️</span>
+          <div>
+            <strong>15 Detik</strong>
+            <small>Per Pertanyaan</small>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">🎯</span>
+          <div>
+            <strong>Skor Maks 100</strong>
+            <small>10 Poin/Soal</small>
+          </div>
+        </div>
+      </div>
+
+      <button id="btn-start" class="btn btn-primary btn-block">Mulai Kuis Sekarang</button>
+    </section>
+
+    <section id="quiz-screen" class="card">
+      <div class="quiz-header">
+        <div class="progress-info">
+          <span class="badge" id="question-progress-badge">1 dari 10</span>
+          <div class="progress-bar-container">
+            <div id="quiz-progress-bar" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="timer-badge" id="timer-badge">
+          <svg class="timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span id="timer-text">15s</span>
+        </div>
+      </div>
+
+      <div class="question-container">
+        <h2 id="question-text" class="question-text">Memuat pertanyaan...</h2>
+      </div>
+
+      <div id="options-container" class="options-container"></div>
+
+      <div id="explanation-box" class="explanation-box hidden">
+        <div class="explanation-header">
+          <span id="feedback-icon" class="feedback-icon">✓</span>
+          <span id="feedback-status-text" class="feedback-status-text">Jawaban Benar!</span>
+        </div>
+        <p id="explanation-text" class="explanation-text"></p>
+      </div>
+
+      <div class="quiz-footer">
+        <button id="btn-next" class="btn btn-primary" disabled>
+          <span>Berikutnya</span>
+          <span class="arrow-icon">➔</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="result-screen" class="card">
+      <div class="result-badge-icon" id="result-emoji">🎉</div>
+      <h2 class="main-title" id="result-headline">Kuis Selesai!</h2>
+      <p class="subtitle" id="result-message">Selamat, kamu telah menyelesaikan semua pertanyaan.</p>
+
+      <div class="score-summary-card">
+        <span class="score-label">Skor Akhir</span>
+        <div class="score-value-wrapper">
+          <span id="score-display" class="score-number">100</span>
+          <span class="score-total">/ 100</span>
+        </div>
+      </div>
+
+      <button id="btn-secret" class="btn btn-secret btn-block hidden">
+        <span>🎁 Lihat Secret</span>
+      </button>
+
+      <div id="secret-video-container" class="secret-video-container hidden">
+        <video id="secret-video" playsinline controls loop>
+          <source src="asset/DIMAS_video_no_watermark.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div id="result-video-container" class="result-video-container hidden">
+        <video id="result-video" playsinline controls loop>
+          <source src="asset/VooDoo_video_no_watermark.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-pill correct">
+          <span class="stat-label">Benar:</span>
+          <strong id="stat-correct">10</strong>
+        </div>
+        <div class="stat-pill wrong">
+          <span class="stat-label">Salah / Waktu Habis:</span>
+          <strong id="stat-wrong">0</strong>
+        </div>
+      </div>
+
+      <div class="review-section">
+        <h3 class="review-title">Ringkasan Jawaban</h3>
+        <div id="review-list" class="review-list"></div>
+      </div>
+
+      <button id="btn-restart" class="btn btn-primary btn-block">Coba Kuis Lagi</button>
+    </section>
+  </main>
+
+  <div id="video-overlay" class="video-overlay hidden">
+    <video id="wrong-video-player" playsinline preload="auto"></video>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
