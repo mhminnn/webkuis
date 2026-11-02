@@ -280,6 +280,7 @@ function startQuiz() {
   }
   if (btnSecret) {
     btnSecret.classList.add("hidden");
+    btnSecret.style.display = "none";
   }
   videoDeck = shuffleArray(wrongVideos);
   lastPlayedVideo = null;
@@ -467,16 +468,19 @@ function showResults() {
     resultHeadline.textContent = "Luar Biasa, Sempurna!";
     resultMessage.textContent = "Kamu berhasil menjawab semua pertanyaan dengan benar!";
     btnSecret.classList.remove("hidden");
-  } else if (score >= 60) {
-    resultEmoji.textContent = "🎉";
-    resultHeadline.textContent = "Kerja Bagus!";
-    resultMessage.textContent = "Pemahaman kamu sudah sangat baik. Terus tingkatkan!";
-    btnSecret.classList.add("hidden");
+    btnSecret.style.display = "flex";
   } else {
-    resultEmoji.textContent = "💪";
-    resultHeadline.textContent = "Jangan Menyerah!";
-    resultMessage.textContent = "Ayo pelajari lagi penjelasannya dan coba raih skor maksimal!";
     btnSecret.classList.add("hidden");
+    btnSecret.style.display = "none";
+    if (score >= 60) {
+      resultEmoji.textContent = "🎉";
+      resultHeadline.textContent = "Kerja Bagus!";
+      resultMessage.textContent = "Pemahaman kamu sudah sangat baik. Terus tingkatkan!";
+    } else {
+      resultEmoji.textContent = "💪";
+      resultHeadline.textContent = "Jangan Menyerah!";
+      resultMessage.textContent = "Ayo pelajari lagi penjelasannya dan coba raih skor maksimal!";
+    }
   }
 
   secretVideoContainer.classList.add("hidden");

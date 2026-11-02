@@ -36,6 +36,10 @@
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none !important;
+}
+
 body {
   font-family: var(--font-family);
   background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
@@ -545,6 +549,10 @@ body {
   font-size: 1rem;
   box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
   animation: bounceBtn 1.5s infinite alternate ease-in-out;
+}
+
+.btn-secret.hidden {
+  display: none !important;
 }
 
 .btn-secret:hover {
