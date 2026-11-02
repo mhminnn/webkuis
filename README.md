@@ -13,3 +13,4 @@ Website kuis interaktif sederhana berbasis HTML, CSS, dan JavaScript murni.
 
 ## Cara Menjalankan
 Buka file `index.html` langsung menggunakan browser pilihan Anda (Google Chrome, Microsoft Edge, Mozilla Firefox, dll).
+
